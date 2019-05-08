@@ -10,6 +10,7 @@
 
     <properties>
         <hadoop.version>3.0.3</hadoop.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencies>
@@ -27,6 +28,11 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-common</artifactId>
             <version>${hadoop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
         </dependency>
     </dependencies>
 
