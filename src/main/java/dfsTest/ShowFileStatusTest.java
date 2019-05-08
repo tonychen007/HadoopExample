@@ -1,9 +1,11 @@
 package dfsTest;
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
 import org.junit.After;
 import org.junit.Before;
@@ -48,6 +50,24 @@ public class ShowFileStatusTest {
         String permission = st.getPermission().toString();
         long bs = st.getBlockSize();
         long len = st.getLen();
+    }
 
+    @Test
+    public void testFileListStatus() throws IOException {
+        Path[] paths = new Path[2];
+        paths[0] = new Path("/user/tony");
+        paths[1] = new Path("/user/tony/input/sample.txt");
+
+        FileStatus[] sts = fs.listStatus(paths);
+        Path[] listedPaths = FileUtil.stat2Paths(sts);
+        for (Path p : listedPaths) {
+            System.out.println(p);
+        }
+
+        sts = fs.globStatus(new Path("/user/*/*"));
+        listedPaths = FileUtil.stat2Paths(sts);
+        for (Path p : listedPaths) {
+            System.out.println(p);
+        }
     }
 }
