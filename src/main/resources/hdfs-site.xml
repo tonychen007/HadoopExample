@@ -17,20 +17,16 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-	<property>
-		<name>dfs.permissions</name>
-		<value>false</value>
-	</property>
     <property>
         <name>dfs.replication</name>
         <value>1</value>
-	</property>
-    <property>
-		<name>dfs.name.dir</name>
-		<value>${hadoop.tmp.dir}/dfs/name</value>
     </property>
-    <property>
-		<name>dfs.node.dir</name>
-		<value>${hadoop.tmp.dir}/dfs/node</value>
+    <property>    
+        <name>dfs.namenode.name.dir</name>    
+        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/namenode</value>    
+    </property>    
+    <property>    
+        <name>dfs.datanode.data.dir</name>    
+        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/datanode</value>  
     </property>
 </configuration>
