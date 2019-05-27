@@ -3,10 +3,10 @@ package maxTemp;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.BZip2Codec;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-
 
 public class MaxTemperature {
     public static void main(String[] args) throws Exception {
@@ -24,9 +24,11 @@ public class MaxTemperature {
 
         job.setMapperClass(MaxTempMapper.class);
         job.setReducerClass(MaxTempReducer.class);
-
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
+
+        FileOutputFormat.setCompressOutput(job, true);
+        FileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }

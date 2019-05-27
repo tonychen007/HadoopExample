@@ -21,12 +21,16 @@
         <name>dfs.replication</name>
         <value>1</value>
     </property>
-    <property>    
-        <name>dfs.namenode.name.dir</name>    
-        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/namenode</value>    
-    </property>    
-    <property>    
-        <name>dfs.datanode.data.dir</name>    
-        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/datanode</value>  
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/namenode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:/E:/LIBS/hadoop-3.0.0/data/dfs/datanode</value>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
     </property>
 </configuration>
