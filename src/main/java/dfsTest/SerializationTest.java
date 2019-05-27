@@ -2,6 +2,7 @@ package dfsTest;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,5 +25,7 @@ public class SerializationTest {
         DataInputStream dataIn = new DataInputStream(in);
         intW2.readFields(dataIn);
         int a = 0;
+
+        // raw comparator
     }
 }
